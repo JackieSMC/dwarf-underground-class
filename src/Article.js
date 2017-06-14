@@ -5,8 +5,13 @@ class Article extends Component {
   constructor() {
     super() 
     this.state = {
-      showComments: true
+      showComments: false
     }
+    this.toggleComments = this.toggleComments.bind(this)
+  }
+  toggleComments(ev) {
+    ev.preventDefault() 
+    this.setState({showComments: !this.state.showComments})
   }
   render() {
     return (
@@ -35,7 +40,7 @@ class Article extends Component {
           <p>Sic tempus fugit esperanto hiccup estrogen. Glorious baklava ex librus hup hey ad infinitum. Non sequitur condominium facile et geranium incognito. Epsum factorial non deposit quid pro quo hic escorol. Marquee selectus non provisio incongruous feline nolo contendre Olypian quarrels et gorilla congolium sic ad nauseum. Souvlaki ignitus carborundum e pluribus unum.</p>
         </section>
         <div className="article-links">
-          <a className="article-link" href="#">
+          <a className="article-link" href="#" onClick={this.toggleComments}>
             <i className="fa fa-comments-o"></i>
             <span className="article-link-text">Comments</span>
           </a>
